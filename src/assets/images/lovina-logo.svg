@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 65" width="230" height="65">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,700&amp;display=swap');
+    </style>
+    <linearGradient id="heartPink" x1="0%" y1="0%" x2="60%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF7096" />
+      <stop offset="100%" style="stop-color:#F03355" />
+    </linearGradient>
+    <linearGradient id="heartOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB05A" />
+      <stop offset="100%" style="stop-color:#FF8C3A" />
+    </linearGradient>
+  </defs>
+
+  <!-- Orange heart: behind, right, opacity 0.9 -->
+  <g transform="translate(22, 14) scale(0.19)" opacity="0.9">
+    <path d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40Z"
+          fill="url(#heartOrange)" />
+  </g>
+
+  <!-- Pink heart: front-left, semi-transparent -->
+  <g transform="translate(4, 5) scale(0.19)" opacity="0.92">
+    <path d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40Z"
+          fill="url(#heartPink)" fill-opacity="0.82" />
+  </g>
+
+  <!-- Text: Poppins 700 italic, size 22 → 24.2 (+10%) -->
+  <text
+    x="80"
+    y="45"
+    font-family="'Poppins', sans-serif"
+    font-size="24.2"
+    font-weight="700"
+    font-style="italic"
+    fill="#F03355"
+    letter-spacing="0.3"
+  >Lovina</text>
+</svg>

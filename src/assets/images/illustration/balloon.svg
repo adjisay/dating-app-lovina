@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 370" width="280" height="370">
+  <defs>
+
+    <!-- Main outer heart gradient -->
+    <linearGradient id="heart-main" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f06080"/>
+      <stop offset="50%" stop-color="#e8385a"/>
+      <stop offset="100%" stop-color="#c4204a"/>
+    </linearGradient>
+
+    <!-- Inner heart — noticeably lighter/brighter so it reads as separate layer -->
+    <linearGradient id="heart-inner" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%"   stop-color="#ffa8bf"/>
+      <stop offset="45%"  stop-color="#f05878"/>
+      <stop offset="100%" stop-color="#cc2850"/>
+    </linearGradient>
+
+    <!-- Outer heart shine -->
+    <radialGradient id="heart-shine" cx="32%" cy="22%" r="42%">
+      <stop offset="0%"   stop-color="white" stop-opacity="0.52"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Outer heart bottom shadow -->
+    <radialGradient id="heart-shadow-grad" cx="50%" cy="92%" r="52%">
+      <stop offset="0%"   stop-color="#7a0828" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#7a0828" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Basket main body gradient — warm tan with side variation -->
+    <linearGradient id="basket-body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#e8a060"/>
+      <stop offset="40%"  stop-color="#d08040"/>
+      <stop offset="100%" stop-color="#b06020"/>
+    </linearGradient>
+
+    <!-- Basket left face (slightly lighter, catches light) -->
+    <linearGradient id="basket-left-face" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#f0b070" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#f0b070" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Basket top rim gradient -->
+    <linearGradient id="basket-rim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#f0b468"/>
+      <stop offset="100%" stop-color="#c87838"/>
+    </linearGradient>
+
+    <!-- Balloon drop shadow -->
+    <filter id="balloon-shadow" x="-25%" y="-15%" width="150%" height="145%">
+      <feDropShadow dx="6" dy="18" stdDeviation="18"
+        flood-color="#a01840" flood-opacity="0.55"/>
+    </filter>
+
+    <!-- Inner heart lift shadow -->
+    <filter id="inner-shadow" x="-12%" y="-12%" width="124%" height="134%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7"
+        flood-color="#880828" flood-opacity="0.38"/>
+    </filter>
+
+    <!-- Basket soft shadow -->
+    <filter id="basket-shadow" x="-10%" y="-10%" width="120%" height="135%">
+      <feDropShadow dx="2" dy="6" stdDeviation="6"
+        flood-color="#6a3010" flood-opacity="0.30"/>
+    </filter>
+
+  </defs>
+
+  <!-- ===================================================
+       OUTER HEART
+       Key points:
+         bottom tip   → (140, 248)
+         top-left dip → (~140, 65)  [the V between lobes]
+         left lobe peak  ← somewhere around x=90
+         right lobe peak ← somewhere around x=190
+  ===================================================== -->
+  <g filter="url(#balloon-shadow)">
+
+    <!-- Outer heart body -->
+    <path id="outer-heart"
+      d="M140 248
+         C140 248 30 170 30 100
+         C30 60 58 38 90 38
+         C108 38 124 48 140 65
+         C156 48 172 38 190 38
+         C222 38 250 60 250 100
+         C250 170 140 248 140 248 Z"
+      fill="url(#heart-main)"/>
+
+    <!-- ===================================================
+         INNER HEART
+         Rules:
+           • bottom tip must touch (140, 248)  — same as outer
+           • top V-dip must be at same X=140, Y≈65 — same as outer
+           • but the lobes are narrower (inset ~28px each side)
+             so left lobe peak ≈ x=112, right ≈ x=168
+           • left/right circle centres pulled inward → never overlaps outer edge
+    ===================================================== -->
+    <g filter="url(#inner-shadow)">
+      <path
+        d="M140 248
+           C140 248 78 182 78 118
+           C78 84 98 65 118 65
+           C128 65 135 70 140 80
+           C145 70 152 65 162 65
+           C182 65 202 84 202 118
+           C202 182 140 248 140 248 Z"
+        fill="url(#heart-inner)"/>
+    </g>
+
+    <!-- Centre fold crease line — spans full outer height -->
+    <line x1="140" y1="55" x2="140" y2="242"
+      stroke="white" stroke-width="1.8" stroke-opacity="0.20"/>
+
+    <!-- Outer heart global shine -->
+    <path
+      d="M140 248
+         C140 248 30 170 30 100
+         C30 60 58 38 90 38
+         C108 38 124 48 140 65
+         C156 48 172 38 190 38
+         C222 38 250 60 250 100
+         C250 170 140 248 140 248 Z"
+      fill="url(#heart-shine)"/>
+
+    <!-- Outer heart bottom shadow -->
+    <path
+      d="M140 248
+         C140 248 30 170 30 100
+         C30 60 58 38 90 38
+         C108 38 124 48 140 65
+         C156 48 172 38 190 38
+         C222 38 250 60 250 100
+         C250 170 140 248 140 248 Z"
+      fill="url(#heart-shadow-grad)"/>
+
+  </g>
+
+  <!-- ===================================================
+       ROPES — fan from tip (140,248) to basket rim corners
+  ===================================================== -->
+  <line x1="138" y1="247" x2="106" y2="289" stroke="#c05068" stroke-width="1.8" stroke-linecap="round" opacity="0.80"/>
+  <line x1="139" y1="248" x2="124" y2="289" stroke="#c05068" stroke-width="1.8" stroke-linecap="round" opacity="0.80"/>
+  <line x1="141" y1="248" x2="156" y2="289" stroke="#c05068" stroke-width="1.8" stroke-linecap="round" opacity="0.80"/>
+  <line x1="142" y1="247" x2="174" y2="289" stroke="#c05068" stroke-width="1.8" stroke-linecap="round" opacity="0.80"/>
+
+  <!-- ===================================================
+       BASKET — smaller, more square, realistic highlights
+       Width: 80px (was 90), Height: 50px (was 42), centred at 140
+       x: 100–180, y: 289–339
+  ===================================================== -->
+  <g filter="url(#basket-shadow)">
+
+    <!-- Main body -->
+    <rect x="100" y="292" width="80" height="50" rx="7" ry="7"
+      fill="url(#basket-body)"/>
+
+    <!-- Left-face light catch -->
+    <rect x="100" y="292" width="80" height="50" rx="7" ry="7"
+      fill="url(#basket-left-face)"/>
+
+    <!-- Horizontal weave bands — subtle, like real wicker -->
+    <rect x="100" y="307" width="80" height="5" rx="0"
+      fill="#b86828" opacity="0.30"/>
+    <rect x="100" y="319" width="80" height="5" rx="0"
+      fill="#b86828" opacity="0.25"/>
+    <rect x="100" y="331" width="80" height="4" rx="0"
+      fill="#b86828" opacity="0.20"/>
+
+    <!-- Vertical weave lines -->
+    <line x1="120" y1="292" x2="118" y2="342" stroke="#9a5018" stroke-width="1.2" opacity="0.35"/>
+    <line x1="140" y1="292" x2="140" y2="342" stroke="#9a5018" stroke-width="1.2" opacity="0.35"/>
+    <line x1="160" y1="292" x2="162" y2="342" stroke="#9a5018" stroke-width="1.2" opacity="0.35"/>
+
+    <!-- Top rim -->
+    <rect x="97" y="288" width="86" height="10" rx="5" ry="5"
+      fill="url(#basket-rim)"/>
+    <!-- Rim highlight top edge -->
+    <rect x="97" y="288" width="86" height="3" rx="3" ry="3"
+      fill="white" opacity="0.25"/>
+
+    <!-- Bottom rim -->
+    <rect x="100" y="336" width="80" height="6" rx="3" ry="3"
+      fill="#985010" opacity="0.75"/>
+
+    <!-- Top-left highlight blob — simulates light from upper left -->
+    <ellipse cx="118" cy="300" rx="12" ry="6"
+      fill="white" opacity="0.14"/>
+
+    <!-- Right-side shadow strip -->
+    <rect x="166" y="292" width="14" height="50" rx="0"
+      fill="#7a3a08" opacity="0.18"/>
+
+    <!-- Subtle overall sheen -->
+    <rect x="100" y="292" width="80" height="50" rx="7" ry="7"
+      fill="white" opacity="0.05"/>
+
+  </g>
+
+</svg>
