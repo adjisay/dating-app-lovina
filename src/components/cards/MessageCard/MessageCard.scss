@@ -1,0 +1,94 @@
+.message-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-m);
+  padding: var(--spacing-m) var(--spacing-l);
+  border-bottom: 1px solid var(--color-border-light);
+  cursor: pointer;
+  transition: var(--transition-base);
+  animation: message-card-in 0.3s ease both;
+
+  @include hover {
+    background: var(--color-bg-pink);
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__name {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: 2px;
+
+    &--bold {
+      font-weight: 700;
+    }
+  }
+
+  &__text {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  &__time {
+    font-size: 12px;
+    color: var(--color-text-light);
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: var(--border-radius-full);
+    background: var(--color-primary);
+    color: var(--color-text-white);
+    font-size: 11px;
+    font-weight: 600;
+    animation: badge-pop 0.3s ease;
+  }
+}
+
+@keyframes message-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes badge-pop {
+  0% {
+    transform: scale(0);
+  }
+
+  70% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

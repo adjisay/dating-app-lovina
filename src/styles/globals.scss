@@ -9,7 +9,10 @@ body {
 
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   font-family: var(--font-family-base);
+  color: var(--color-text);
+  background: var(--color-bg);
 }
 
 main {
@@ -91,4 +94,13 @@ a {
 
 :has(.swiper) {
   min-width: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

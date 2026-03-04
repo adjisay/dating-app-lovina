@@ -1,0 +1,26 @@
+.content {
+  flex-grow: 1;
+  padding-bottom: calc(var(--bottom-nav-height) + var(--spacing-l));
+  padding-top: var(--header-height);
+  transition: var(--transition-base);
+
+  &--no-padding-top {
+    padding-top: 0;
+  }
+
+  &--auth {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @include tablet-above {
+    padding-bottom: var(--spacing-xl);
+    padding-left: 80px;
+  }
+
+  &--auth {
+    @include tablet-above {
+      padding-left: 0;
+    }
+  }
+}

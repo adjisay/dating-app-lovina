@@ -1,14 +1,41 @@
 :root {
-  /* Colors */
+  /* Colors — Primary */
+  --color-primary: #e94076;
+  --color-primary-light: #f472a8;
+  --color-primary-lighter: #fce4ec;
+  --color-primary-dark: #d1365e;
+  --color-primary-gradient: linear-gradient(135deg, #f472a8 0%, #e94076 100%);
+
+  /* Colors — Accent */
+  --color-accent: #2ecb71;
+  --color-accent-light: #5fd99a;
+  --color-accent-dark: #25a35b;
+
+  /* Colors — Background */
+  --color-bg: #fff5f8;
+  --color-bg-white: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-bg-pink: #fde8ef;
+  --color-bg-gradient: linear-gradient(180deg, #fde8ef 0%, #fff5f8 50%, #ffffff 100%);
+  --color-bg-overlay: rgb(0 0 0 / 40%);
+
+  /* Colors — Text */
+  --color-text: #2d2d2d;
+  --color-text-secondary: #8e8e8e;
+  --color-text-light: #b0b0b0;
+  --color-text-white: #ffffff;
+  --color-text-pink: #e94076;
+
+  /* Colors — UI */
   --color-white: #ffffff;
   --color-black: #000000;
-
-  /* Add project-specific color tokens here */
-  /* Example:
-  --color-accent: #e50000;
-  --color-bg: #141414;
-  --color-text: #999999;
-  */
+  --color-border: #f0e0e6;
+  --color-border-light: #f8ecf0;
+  --color-shadow: rgb(233 64 118 / 12%);
+  --color-error: #e74c3c;
+  --color-success: #2ecb71;
+  --color-warning: #f39c12;
+  --color-super-like: #f5a623;
 
   /* Borders */
   --border-width-xl: 6px;
@@ -16,15 +43,25 @@
   --border-width-m: 3px;
   --border-width-s: 1px;
 
-  --border-radius-l: 12px;
-  --border-radius-m: 10px;
+  --border-radius-full: 9999px;
+  --border-radius-xl: 24px;
+  --border-radius-l: 16px;
+  --border-radius-m: 12px;
   --border-radius-s: 8px;
   --border-radius-xs: 6px;
-  --border-radius-xxs: 5px;
-  --border-radius-xxxs: 4px;
 
   /* Typography */
-  --font-family-base: sans-serif;
+  --font-family-base: "Montserrat", sans-serif;
+  --font-family-logo: "Pacifico", cursive;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-s: 8px;
+  --spacing-m: 12px;
+  --spacing-l: 16px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  --spacing-xxxl: 48px;
 
   /* Layout */
   --container-width: #{fluid-to-laptop(
@@ -33,8 +70,18 @@
     )};
   --container-padding-x: 16px;
   --section-padding-y: #{fluid(75, 40)};
+  --bottom-nav-height: 64px;
+  --header-height: 56px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgb(233 64 118 / 8%);
+  --shadow-md: 0 4px 16px rgb(233 64 118 / 12%);
+  --shadow-lg: 0 8px 32px rgb(233 64 118 / 16%);
+  --shadow-card: 0 4px 20px rgb(233 64 118 / 10%);
 
   /* Transitions */
   --transition-duration: 0.2s;
   --transition-duration-longer: 0.4s;
+  --transition-base: all 0.2s ease;
+  --transition-slow: all 0.4s ease;
 }

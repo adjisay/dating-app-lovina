@@ -1,0 +1,54 @@
+.pro-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-l);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-l);
+  background: var(--color-primary-gradient);
+  color: var(--color-text-white);
+  overflow: hidden;
+  animation: banner-shimmer 3s ease-in-out infinite;
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: var(--color-text-white);
+  }
+
+  &__description {
+    font-size: 13px;
+    opacity: 0.9;
+    margin: 0;
+    color: var(--color-text-white);
+  }
+
+  .button--outline {
+    border-color: var(--color-white);
+    color: var(--color-white);
+    flex-shrink: 0;
+
+    @include hover {
+      background: var(--color-white);
+      color: var(--color-primary);
+    }
+  }
+}
+
+@keyframes banner-shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}

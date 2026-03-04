@@ -1,0 +1,68 @@
+.avatar {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  border-radius: 50%;
+  transition: transform var(--transition-duration) ease;
+
+  @include hover {
+    transform: scale(1.05);
+  }
+
+  &--sm {
+    @include square(32px);
+  }
+
+  &--md {
+    @include square(48px);
+  }
+
+  &--lg {
+    @include square(80px);
+  }
+
+  &--xl {
+    @include square(120px);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    animation: badge-pop 0.3s ease;
+  }
+
+  &__online {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    width: 12px;
+    height: 12px;
+    background: var(--color-success);
+    border: 2px solid var(--color-bg-white);
+    border-radius: 50%;
+  }
+
+  &--sm &__online {
+    width: 8px;
+    height: 8px;
+    bottom: 0;
+    right: 0;
+  }
+
+  &--lg &__online,
+  &--xl &__online {
+    width: 16px;
+    height: 16px;
+    bottom: 4px;
+    right: 4px;
+    border-width: 3px;
+  }
+}

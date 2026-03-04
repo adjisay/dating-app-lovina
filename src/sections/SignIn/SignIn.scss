@@ -1,0 +1,260 @@
+/* ===========================
+   SignIn Section
+   =========================== */
+
+@keyframes cloud-float {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(8px);
+  }
+}
+
+@keyframes cloud-float-flipped {
+  0%,
+  100% {
+    transform: scaleX(-1) translateX(0);
+  }
+
+  50% {
+    transform: scaleX(-1) translateX(8px);
+  }
+}
+
+@keyframes balloon-sway {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(2deg);
+  }
+}
+
+@keyframes fade-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-6px);
+  }
+
+  40%,
+  80% {
+    transform: translateX(6px);
+  }
+}
+
+.sign-in {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--color-bg-white);
+
+  // -------------------------
+  // Hero (pink gradient + illustrations)
+  // -------------------------
+  &__hero {
+    position: relative;
+    background: linear-gradient(
+      180deg,
+      #fce4ec 0%,
+      #f8b4c8 40%,
+      #f48fb1 100%
+    );
+    min-height: 340px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include tablet {
+      min-height: 300px;
+    }
+
+    @include mobile {
+      min-height: 260px;
+    }
+  }
+
+  // Clouds
+  &__cloud {
+    position: absolute;
+    animation: cloud-float 4s ease-in-out infinite;
+    pointer-events: none;
+    opacity: 0.85;
+    z-index: 1;
+  }
+
+  // Balloon
+  &__balloon-wrapper {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 30px;
+  }
+
+  &__balloon {
+    width: #{fluid(200, 130)};
+    height: auto;
+    animation: balloon-sway 5s ease-in-out infinite;
+    filter: drop-shadow(0 8px 24px rgb(233 64 118 / 20%));
+  }
+
+  // Mask divider
+  &__mask {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  // -------------------------
+  // Body (form area)
+  // -------------------------
+  &__body {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: var(--spacing-xl) var(--container-padding-x) var(--spacing-xxxl);
+    background: var(--color-bg-white);
+  }
+
+  &__content {
+    width: 100%;
+    max-width: 400px;
+    animation: fade-slide-up 0.6s ease both;
+  }
+
+  // -------------------------
+  // Typography
+  // -------------------------
+  &__title {
+    @include fluid-text(32, 24);
+
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  &__subtitle {
+    @include fluid-text(16, 14);
+
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  // -------------------------
+  // Social buttons
+  // -------------------------
+  &__social {
+    display: flex;
+    gap: var(--spacing-m);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  &__social-btn {
+    @include flex-center;
+    @include square(48px);
+
+    border-radius: var(--border-radius-full);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-white);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: var(--transition-base);
+
+    @include hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      box-shadow: var(--shadow-sm);
+      transform: scale(0.95);
+    }
+  }
+
+  // -------------------------
+  // Form
+  // -------------------------
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+    margin-bottom: var(--spacing-l);
+  }
+
+  // -------------------------
+  // Options row (remember + forgot)
+  // -------------------------
+  &__options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  &__forgot {
+    @include fluid-text(14, 12);
+
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition-base);
+
+    @include hover {
+      color: var(--color-primary-dark);
+      text-decoration: underline;
+    }
+  }
+
+  // -------------------------
+  // Register link
+  // -------------------------
+  &__register-link {
+    @include fluid-text(14, 13);
+
+    text-align: center;
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-xl);
+  }
+
+  &__register-anchor {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-base);
+
+    @include hover {
+      color: var(--color-primary-dark);
+      text-decoration: underline;
+    }
+  }
+}

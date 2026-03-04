@@ -1,0 +1,70 @@
+.my-profile {
+  padding: var(--spacing-l) var(--container-padding-x);
+  padding-bottom: calc(var(--bottom-nav-height) + var(--spacing-xl));
+  animation: my-profile-fade-in 0.4s ease both;
+
+  &__photos {
+    margin-bottom: var(--spacing-xxl);
+  }
+
+  &__interests {
+    margin-bottom: var(--spacing-xxl);
+  }
+
+  &__section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-l);
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-s);
+  }
+
+  &__tag-wrapper {
+    animation: my-profile-tag-enter 0.3s ease both;
+  }
+
+  &__action {
+    padding-top: var(--spacing-l);
+  }
+}
+
+@keyframes my-profile-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes my-profile-tag-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@include tablet {
+  .my-profile {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@include laptop-above {
+  .my-profile {
+    max-width: 700px;
+    padding: var(--spacing-xl) 0;
+  }
+}

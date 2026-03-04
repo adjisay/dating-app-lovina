@@ -1,7 +1,18 @@
-export default () => {
+import Dashboard from "@/sections/Dashboard"
+import BottomNav from "@/layouts/BottomNav"
+
+export default function DashboardPage() {
   return (
-    <main>
-      <h1>Home</h1>
-    </main>
+    <>
+      <Dashboard />
+      <BottomNav url="/" />
+    </>
   )
+}
+
+export const frontmatter = {
+  props: {
+    title: "Главная",
+    url: "/",
+  },
 }

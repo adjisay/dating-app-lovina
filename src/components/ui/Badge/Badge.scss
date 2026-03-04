@@ -1,0 +1,39 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: var(--border-radius-full);
+  font-family: var(--font-family-base);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-text-white);
+  animation: badge-pop 0.3s ease;
+
+  &--primary {
+    background: var(--color-primary);
+  }
+
+  &--success {
+    background: var(--color-success);
+  }
+
+  &--danger {
+    background: var(--color-error);
+  }
+}
+
+@keyframes badge-pop {
+  0% {
+    transform: scale(0);
+  }
+  60% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

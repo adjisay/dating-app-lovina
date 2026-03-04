@@ -1,0 +1,112 @@
+.sidebar {
+  display: none;
+
+  @include tablet-above {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 110;
+    background: var(--color-bg-white);
+    border-right: 1px solid var(--color-border-light);
+    box-shadow: 2px 0 12px rgb(233 64 118 / 6%);
+    padding-top: var(--spacing-l);
+  }
+
+  &__logo {
+    @include flex-center;
+
+    padding-bottom: var(--spacing-xl);
+  }
+
+  &__logo-icon {
+    color: var(--color-primary);
+    transition: var(--transition-base);
+  }
+
+  &__nav {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-s);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: var(--spacing-s) var(--spacing-xs);
+    width: 64px;
+    border-radius: var(--border-radius-m);
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: var(--transition-base);
+    position: relative;
+
+    @include hover {
+      color: var(--color-primary);
+      background: var(--color-primary-lighter);
+      transform: scale(1.05);
+    }
+
+    &--active {
+      color: var(--color-primary);
+      background: var(--color-primary-lighter);
+
+      .sidebar__icon {
+        color: var(--color-primary);
+      }
+
+      .sidebar__label {
+        color: var(--color-primary);
+        font-weight: 600;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 24px;
+        background: var(--color-primary);
+        border-radius: var(--border-radius-full);
+      }
+    }
+  }
+
+  &__icon {
+    transition: var(--transition-base);
+  }
+
+  &__label {
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    transition: var(--transition-base);
+  }
+}

@@ -1,0 +1,87 @@
+.dashboard {
+  padding: var(--spacing-l) var(--container-padding-x);
+  padding-bottom: calc(var(--bottom-nav-height) + var(--spacing-xl));
+
+  &__search {
+    margin-bottom: var(--spacing-l);
+  }
+
+  &__banner {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  &__section {
+    margin-bottom: var(--spacing-xl);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-m);
+  }
+
+  &__section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  &__filter-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: var(--transition-base);
+
+    @include hover {
+      color: var(--color-primary);
+    }
+  }
+
+  &__matches,
+  &__requests {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card-wrapper {
+    padding: var(--spacing-m) 0;
+    border-bottom: 1px solid var(--color-border-light);
+    animation: dashboard-card-enter 0.4s ease both;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+@keyframes dashboard-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@include tablet {
+  .dashboard {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@include laptop-above {
+  .dashboard {
+    max-width: 700px;
+    padding: var(--spacing-xl) 0;
+  }
+}

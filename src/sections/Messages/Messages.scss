@@ -1,0 +1,54 @@
+.messages {
+  padding: var(--spacing-l) var(--container-padding-x);
+  padding-bottom: calc(var(--bottom-nav-height) + var(--spacing-xl));
+
+  &__tabs {
+    margin-bottom: var(--spacing-l);
+  }
+
+  &__chat-list,
+  &__requests-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card-wrapper {
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid var(--color-border-light);
+    animation: messages-card-enter 0.35s ease both;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__banner {
+    margin-top: var(--spacing-xl);
+  }
+}
+
+@keyframes messages-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@include tablet {
+  .messages {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@include laptop-above {
+  .messages {
+    max-width: 700px;
+    padding: var(--spacing-xl) 0;
+  }
+}

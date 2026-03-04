@@ -1,0 +1,113 @@
+$thumb-size: 24px;
+$track-height: 4px;
+
+.range-slider {
+  width: 100%;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-m);
+  }
+
+  &__label {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  &__value {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-primary);
+  }
+
+  &__track-wrapper {
+    position: relative;
+    height: $thumb-size;
+    display: flex;
+    align-items: center;
+  }
+
+  &__track {
+    position: absolute;
+    width: 100%;
+    height: $track-height;
+    background: var(--color-border);
+    border-radius: var(--border-radius-full);
+  }
+
+  &__fill {
+    position: absolute;
+    height: 100%;
+    background: var(--color-primary-gradient);
+    border-radius: var(--border-radius-full);
+    transition: left 0.05s ease, width 0.05s ease;
+  }
+
+  &__input {
+    position: absolute;
+    width: 100%;
+    height: $thumb-size;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    pointer-events: none;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+
+    // Webkit thumb
+    &::-webkit-slider-thumb {
+      appearance: none;
+      -webkit-appearance: none;
+      width: $thumb-size;
+      height: $thumb-size;
+      background: var(--color-primary);
+      border: 3px solid var(--color-bg-white);
+      border-radius: 50%;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      pointer-events: all;
+      transition: transform var(--transition-duration) ease,
+        box-shadow var(--transition-duration) ease;
+
+      &:hover {
+        transform: scale(1.15);
+        box-shadow: var(--shadow-md);
+      }
+
+      &:active {
+        transform: scale(1.1);
+      }
+    }
+
+    // Firefox thumb
+    &::-moz-range-thumb {
+      width: $thumb-size - 6px;
+      height: $thumb-size - 6px;
+      background: var(--color-primary);
+      border: 3px solid var(--color-bg-white);
+      border-radius: 50%;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      pointer-events: all;
+      transition: transform var(--transition-duration) ease,
+        box-shadow var(--transition-duration) ease;
+    }
+
+    // Firefox track
+    &::-moz-range-track {
+      background: transparent;
+    }
+
+    &--min {
+      z-index: 2;
+    }
+
+    &--max {
+      z-index: 1;
+    }
+  }
+}

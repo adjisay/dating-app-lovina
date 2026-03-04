@@ -1,0 +1,125 @@
+.profile {
+  padding-bottom: calc(var(--bottom-nav-height) + var(--spacing-xl));
+  animation: profile-fade-in 0.5s ease both;
+
+  &__photo-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    max-height: 460px;
+    overflow: hidden;
+    border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, rgb(0 0 0 / 30%) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  &__body {
+    padding: var(--spacing-xl) var(--container-padding-x);
+    animation: profile-slide-up 0.5s ease 0.15s both;
+  }
+
+  &__name {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-s);
+  }
+
+  &__location {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-l);
+    color: var(--color-text-secondary);
+    font-size: 14px;
+  }
+
+  &__location-icon {
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  &__bio {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  &__interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-s);
+    margin-bottom: var(--spacing-xxl);
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+  }
+}
+
+@keyframes profile-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes profile-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@include tablet {
+  .profile {
+    max-width: 500px;
+    margin: 0 auto;
+
+    &__photo-wrapper {
+      border-radius: var(--border-radius-xl);
+      margin: var(--spacing-l) var(--container-padding-x) 0;
+    }
+
+    &__actions {
+      flex-direction: row;
+    }
+  }
+}
+
+@include laptop-above {
+  .profile {
+    max-width: 560px;
+    padding: var(--spacing-xl) 0;
+
+    &__photo-wrapper {
+      max-height: 520px;
+    }
+  }
+}
